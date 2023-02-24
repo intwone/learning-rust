@@ -38,7 +38,7 @@ fn main() {
 ```
 
 Nesse caso acima, o Rust não fará como em algumas linguagens, que
-fará a variável "a" e "b" apontarem para o mesmo local de memória que está o valor 1. Diferente disso, o Rust criará um outro espaço na memória para a variável "b", ou seja, "a" e "b" tem referências distintas na memória e isso faz com que mutação de uma não afete o resultado da outra. Caso o programador não queria ter esse comportamento, então devemos criar explicitamente uma referência da variável "b" para a variável "a", conforme o exemplo abaixo:
+faz com que a variável "a" e "b" apontem para o mesmo local de memória que está o valor 1. Diferente disso, o Rust criará um outro espaço na memória para a variável "b", ou seja, "a" e "b" tem referências distintas na memória e isso faz com que mutação de uma não afete o resultado da outra. Caso o programador não queria ter esse comportamento, então devemos criar explicitamente uma referência da variável "b" para a variável "a", conforme o exemplo abaixo:
 
 ```rust
 fn main() {
@@ -78,8 +78,7 @@ Para resolver isso, o Rust faz um processo de transferência de owner.
 Ex.:
 
 - let a é responsável pelo espaço de memória da String "Cassio"
-- quando a execução do programa chega na instrução `let b = a`, a variável "b" passa a ser a owner desse espaço e por consequencia ficará
-responsável por limpar essa informação da memória.
+- quando a execução do programa chega na instrução `let b = a`, a variável "b" passa a ser a owner desse espaço e por consequencia ficará responsável por limpar essa informação da memória.
 
 Agora, temos um problema.
 Como o owner da String "Cassio" foi passado para a variável "b", a variável "a" passa a ser inválida, fazendo com que ocorra um erro durante o `println!("{a}")`, pois "a" não existe mais.
@@ -212,7 +211,7 @@ fn main() {
 }
 ```
 
-Nesse caso acima, estamos fazendo com que o valor recebido por parâmetro seja mutável, mas não precisamos criar varias cópias em memória do "text", pois ela será mutável. Tendo o valor mutável, poderemos utilizar a sintaxe `*text = text.to_uppercase()` para mudar o valor do text. 
+Nesse caso acima, estamos fazendo com que o valor recebido por parâmetro seja mutável, mas não precisamos criar varias cópias em memória do "text", pois ela será mutável. Tendo o valor mutável, poderemos utilizar a sintaxe `*text = text.to_uppercase()` para mudar o valor do text.
 
 Perceba que temos o '*' antes do 'text', pois 'text' sendo um valor mutável, precisaremos referenciar como um ponteiro para que possamos fazer essa mutação.
 
