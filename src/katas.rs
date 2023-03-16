@@ -1,17 +1,3 @@
-fn main() {
-  // let result = positive_sum(&[1, 4, -1, -6, 10]);
-  // let result = even_or_odd(24);
-  // let result = solution("Cassio");
-  // let result = bool_to_word(false);
-  // let result = remove_char("Cassio Oliveira Silva");
-  // let result = repeat_str("cassio", 4);
-  // let result = square_sum([2, 1].to_vec());
-  // let result = summation(8);
-  // let result = no_space("ca  asda as123 sad dasd ds d asd ad".to_string());
-  let result = get_count("cassioaaw12sa1aa");
-  println!("{result}");
-}
-
 fn positive_sum(slice: &[i32]) -> i32 {
   // my
   // let mut sum = 0;
@@ -176,4 +162,35 @@ fn get_count(string: &str) -> usize {
   // string.matches(&['a', 'e', 'i', 'o', 'u']).count()
 
   0
+}
+
+fn solve(s: &str) -> String {
+  // my
+  // if s.chars().filter(|&c| c.is_uppercase()).count() > s.len() / 2 {
+  //   s.to_uppercase()
+  // } else {
+  //   s.to_lowercase()
+  // }
+
+  // clever
+  let num_uppercase = s.matches(char::is_uppercase).count();
+  match num_uppercase > s.len() - num_uppercase {
+    true => s.to_uppercase(),
+    false => s.to_lowercase(),
+  }
+}
+
+fn main() {
+  // let result = positive_sum(&[1, 4, -1, -6, 10]);
+  // let result = even_or_odd(24);
+  // let result = solution("Cassio");
+  // let result = bool_to_word(false);
+  // let result = remove_char("Cassio Oliveira Silva");
+  // let result = repeat_str("cassio", 4);
+  // let result = square_sum([2, 1].to_vec());
+  // let result = summation(8);
+  // let result = no_space("ca  asda as123 sad dasd ds d asd ad".to_string());
+  // let result = get_count("cassioaaw12sa1aa");
+  let result = solve("CASiio");
+  println!("{result}");
 }
